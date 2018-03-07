@@ -41,6 +41,7 @@ gem 'hamlit'
 gem 'dotenv-rails'
 gem 'pry-rails'
 gem 'sidekiq', '~> 5.0'
+gem 'airbrake', '~> 7.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
