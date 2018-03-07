@@ -1,4 +1,18 @@
 class RetweetTogglesController < ApplicationController
+  DISABLED_FLASH = <<~END
+    You got it, we're disabling retweets on your timeline now. It takes a
+    minute, so just calm down. It's also not retroactive, so you'll only notice
+    the changes for tweets going forward. It can take a few minutes depending on
+    how many people you follow, and how backed up we are
+  END
+
+  ENABLED_FLASH = <<~END
+    Not for you huh? We're enabling retweets on your timeline now. You probably
+    know the drill by now but just to recap: it takes a minute, and it's not
+    retroactive. Try not to think about all the fascinating retweets you've
+    missed.
+  END
+
   def index
   end
 
@@ -9,8 +23,8 @@ class RetweetTogglesController < ApplicationController
         auth_hash.credentials.secret,
         enable_retweets?,
       )
-      session.delete(:retweets)
-      redirect_to '/', notice: "Successfully applied your settings"
+      notice = session.delete(:retweets) ? ENABLED_FLASH : DISABLED_FLASH
+      redirect_to '/', notice: notice
     else
       session[:retweets] = enable_retweets?
       redirect_to '/auth/twitter'

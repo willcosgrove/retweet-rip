@@ -1,4 +1,33 @@
-%p
-  = link_to "enable", enable_retweets_path
-%p
-  = link_to "disable", disable_retweets_path
+%main
+  %h1 Retweet.RIP
+
+  - if flash[:notice]
+    %p.notice= flash[:notice]
+
+  - if flash[:alert]
+    %p.alert= flash[:alert]
+
+  .actions
+    = link_to disable_retweets_path, class: "btn" do
+      = image_tag "no_retweet.png"
+      Disable Retweets
+
+    = link_to enable_retweets_path, class: "btn" do
+      = image_tag "retweet.png"
+      Enable Retweets
+  %p
+    #{link_to "It's been proposed", "https://www.theatlantic.com/magazine/archive/2018/04/the-case-against-retweets/554078/?single_page=true", target: "_blank"}
+    that the world would be a better place without Retweets. If you would like
+    to see what a no Retweet world looks like, click the disable button to turn
+    off retweets from all of the people you follow.  Don't like it? Turn it back
+    on with the enable button.
+  %p
+    If you're a power user who has spent a lot of time fine tuning which accounts
+    you get retweets from and which you don't, this tool is not for you.  It will
+    heartlessly ruin all of your hard work.  So don't click either button.
+  %hr/
+  %p
+    This is a pop-up website (in the vein of pop-up shops and restaurants, not
+    like one of those annoying popups) made by
+    #{link_to "Will Cosgrove", "https://willcosgrove.com"}.  If you wanted to
+    share it, that would be cool; but if you don't that's fine too.

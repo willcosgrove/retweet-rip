@@ -1,33 +1,15 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  enabled_flash: >
+    Not for you huh? We're enabling retweets on your timeline now. You probably
+    know the drill by now but just to recap: it takes a minute, and it's not
+    retroactive. Try not to think about all the fascinating retweets you've
+    missed.
+  disabled_flash: >
+    You got it, we're disabling retweets on your timeline now. It takes a
+    minute, so just calm down. It's also not retroactive, so you'll only notice
+    the changes for tweets going forward. It can take a few minutes depending on
+    how many people you follow, and how backed up we are.
+  auth_failure: >
+    Drat! Something didn't work. I'm really sorry about that. I'll try to fix
+    any bugs I see come in, in a timely manner. But this is a free service, so
+    you know... you get what you pay for 😬
