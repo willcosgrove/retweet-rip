@@ -1,7 +1,7 @@
-class RetweetDisablerJob < ApplicationJob
+class RetweetSetterJob < ApplicationJob
   queue_as :default
 
-  def perform(access_token, access_secret)
+  def perform(access_token, access_secret, retweets_enabled = false)
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["TWITTER_API_KEY"]
       config.consumer_secret     = ENV["TWITTER_API_SECRET"]
@@ -10,7 +10,7 @@ class RetweetDisablerJob < ApplicationJob
     end
 
     client.friend_ids.each do |friend_id|
-      client.friendship_update(friend_id, { retweets: false })
+      client.friendship_update(friend_id, { retweets: retweets_enabled })
     end
   end
 end

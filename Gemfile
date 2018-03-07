@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'twitter', '~> 6.0'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'hamlit'
+gem 'dotenv-rails'
+gem 'pry-rails'
+gem 'sidekiq', '~> 5.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
